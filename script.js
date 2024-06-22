@@ -1,19 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('https://newsapi.org/v2/everything?q=AI%20OR%20IoT&apiKey=ecfbf5602c754f6095a2f70a68e88fc8')
+    const apiKey = 'ecfbf5602c754f6095a2f70a68e88fc8'; // Your API key
+    const apiUrl = `https://newsapi.org/v2/everything?q=IoT&apiKey=${apiKey}`;
+
+    fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
             const newsContainer = document.getElementById('news-content');
             newsContainer.innerHTML = ''; // Clear "Loading..." text
-            data.articles.forEach(article => {
-                const articleDiv = document.createElement('div');
-                articleDiv.classList.add('article');
-                articleDiv.innerHTML = `
-                    <h3>${article.title}</h3>
-                    <p>${article.description}</p>
-                    <a href="${article.url}" target="_blank">Read more</a>
-                `;
-                newsContainer.appendChild(articleDiv);
-            });
+
+            if (data.articles && data.articles.length > 0) {
+                data.articles.forEach(article => {
+                    const articleDiv = document.createElement('div');
+                    articleDiv.classList.add('article');
+                    articleDiv.innerHTML = `
+                        <h3>${article.title}</h3>
+                        <p>${article.description}</p>
+                        <a href="${article.url}" target="_blank">Read more</a>
+                    `;
+                    newsContainer.appendChild(articleDiv);
+                });
+            } else {
+                newsContainer.innerHTML = 'No articles found.';
+            }
         })
-        .catch(error => console.error('Error fetching news:', error));
+        .catch(error => {
+            console.error('Error fetching news:', error);
+            const newsContainer = document.getElementById('news-content');
+            newsContainer.innerHTML = 'Error fetching news.';
+        });
 });
