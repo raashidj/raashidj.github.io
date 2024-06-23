@@ -12,14 +12,14 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#news">Latest News</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" onclick="showSection('about')">About Me</a></li>
+            <li><a href="#news" onclick="showSection('news')">Latest News</a></li>
+            <li><a href="#gallery" onclick="showSection('gallery')">Gallery</a></li>
+            <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
         </ul>
     </nav>
     <main>
-        <section id="about">
+        <section id="about" class="active">
             <h2>About Me</h2>
             <p>Hi, I'm Raashid Jabir. Welcome to my personal website where I share updates about my projects and interests.</p>
         </section>
@@ -35,10 +35,39 @@
                 <img src="https://via.placeholder.com/150" alt="Sample Image 3">
             </div>
         </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Contact me at: <span id="email"></span></p>
+            <p>Phone: <span id="phone"></span></p>
+            <p>Address: 123 Street, City, Country</p>
+        </section>
     </main>
-    <footer id="contact">
-        <p>Contact: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+    <footer>
+        <p>Contact: <span id="footer-email"></span></p>
     </footer>
+    <script>
+        // Function to show the correct section
+        function showSection(sectionId) {
+            document.querySelectorAll('main section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Function to decode Base64
+        function decodeBase64(encoded) {
+            return atob(encoded);
+        }
+
+        // Set encoded contact details
+        const encodedPhone = 'Kzk3MTA1MDcxMDAxMzU=';
+        const encodedEmail = 'cmFhc2hpZGphYmlybUBnbWFpbC5jb20=';
+
+        // Decode and display contact details
+        document.getElementById('phone').textContent = decodeBase64(encodedPhone);
+        document.getElementById('email').textContent = decodeBase64(encodedEmail);
+        document.getElementById('footer-email').textContent = decodeBase64(encodedEmail);
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
