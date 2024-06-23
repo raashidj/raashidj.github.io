@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const apiKey = 'ecfbf5602c754f6095a2f70a68e88fc8'; // Your API key
+    const apiKey = 'ecfbf5602c754f6095a2f70a68e88fc8'; // Replace with your API key
     const apiUrl = `https://newsapi.org/v2/everything?q=IoT&apiKey=${apiKey}`;
 
     fetch(apiUrl)
