@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const apiKey = 'ecfbf5602c754f6095a2f70a68e88fc8'; // Replace with your API key
+    const apiKey = 'YOUR_API_KEY'; // Replace with your API key
     const apiUrl = `https://newsapi.org/v2/everything?q=IoT&apiKey=${apiKey}`;
 
     fetch(apiUrl)
@@ -29,3 +29,10 @@ document.addEventListener('DOMContentLoaded', function () {
             newsContainer.innerHTML = 'Error fetching news.';
         });
 });
+
+function showSection(sectionId) {
+    document.querySelectorAll('main section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(sectionId).classList.add('active');
+}
