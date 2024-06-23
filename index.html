@@ -12,31 +12,31 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#about" onclick="showSection('about')">About Me</a></li>
-            <li><a href="#news" onclick="showSection('news')">Latest News</a></li>
-            <li><a href="#gallery" onclick="showSection('gallery')">Gallery</a></li>
-            <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+            <li><a href="#portal" onclick="showSection('portal')">Portal</a></li>
+            <li><a href="#global" onclick="showSection('global')">Global</a></li>
+            <li><a href="#archives" onclick="showSection('archives')">Archives</a></li>
+            <li><a href="#geo-tag" onclick="showSection('geo-tag')">Geo Tag</a></li>
         </ul>
     </nav>
     <main>
-        <section id="about" class="active">
-            <h2>About Me</h2>
+        <section id="portal" class="active">
+            <h2>Portal</h2>
             <p>Hi, I'm Raashid Jabir. Welcome to my personal website where I share updates about my projects and interests.</p>
         </section>
-        <section id="news">
-            <h2>Latest News on AI and IoT</h2>
+        <section id="global">
+            <h2>Global</h2>
             <div id="news-content">Loading...</div>
         </section>
-        <section id="gallery">
-            <h2>Gallery</h2>
+        <section id="archives">
+            <h2>Archives</h2>
             <div class="gallery">
                 <img src="iot1.jpg" alt="IoT Image 1">
                 <img src="https://via.placeholder.com/150" alt="Sample Image 2">
                 <img src="https://via.placeholder.com/150" alt="Sample Image 3">
             </div>
         </section>
-        <section id="contact">
-            <h2>Contact</h2>
+        <section id="geo-tag">
+            <h2>Geo Tag</h2>
             <p>Contact me at: <span id="email"></span></p>
             <p>Phone: <span id="phone"></span></p>
             <p>Address: 123 Street, City, Country</p>
@@ -60,14 +60,4 @@
         }
 
         // Set encoded contact details
-        const encodedPhone = 'Kzk3MTA1MDcxMDAxMzU=';
-        const encodedEmail = 'cmFhc2hpZGphYmlybUBnbWFpbC5jb20=';
-
-        // Decode and display contact details
-        document.getElementById('phone').textContent = decodeBase64(encodedPhone);
-        document.getElementById('email').textContent = decodeBase64(encodedEmail);
-        document.getElementById('footer-email').textContent = decodeBase64(encodedEmail);
-    </script>
-    <script src="script.js"></script>
-</body>
-</html>
+        const encodedPhone = 'Kzk3MTA1MDcxMDAxM
