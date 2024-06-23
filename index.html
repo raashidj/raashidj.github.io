@@ -60,4 +60,14 @@
         }
 
         // Set encoded contact details
-        const encodedPhone = 'Kzk3MTA1MDcxMDAxM
+        const encodedPhone = 'Kzk3MTA1MDcxMDAxMzU=';
+        const encodedEmail = 'cmFhc2hpZGphYmlybUBnbWFpbC5jb20=';
+
+        // Decode and display contact details
+        document.getElementById('phone').textContent = decodeBase64(encodedPhone);
+        document.getElementById('email').textContent = decodeBase64(encodedEmail);
+        document.getElementById('footer-email').textContent = decodeBase64(encodedEmail);
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
